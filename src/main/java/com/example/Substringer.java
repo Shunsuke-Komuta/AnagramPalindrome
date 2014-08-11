@@ -5,25 +5,30 @@ import java.util.ArrayList;
 
 public class Substringer {
 
-  public ArrayList<String> substringsOfOddAndEven(String string) {
-    ArrayList<String> substringsOfOdd = new ArrayList<String>();
-    ArrayList<String> substringsOfEven = new ArrayList<String>();
+  public ArrayList<String> createArrayOfSubstrings(String string) {
+    ArrayList<String> substrings = new ArrayList<String>();
 
-    int n = 0;
+    int j = string.length();
+    int beginIndex = 0;
+    int endIndex = 0;
 
-    for (int beginIndex = 0; beginIndex <= string.length(); beginIndex++) {
-      ++n;
-      for (int endIndex = 2 * n + 1; endIndex <= string.length(); endIndex +) {
-        String substring = null;
-
-        if (endIndex == string.length()) {
-          substring = string.substring(beginIndex);
+    for (int i = 0; i < j; i++) {
+      for (i = 0; i < j; i++) {
+        beginIndex = 0;
+        endIndex++;
+        if (endIndex == j) {
+          substrings.add(string.substring(beginIndex));
+          System.out.println(string.substring(beginIndex));
         } else {
-          substring = string.substring(beginIndex, endIndex);
+          substrings.add(string.substring(beginIndex, endIndex));
+          System.out.println(string.substring(beginIndex, endIndex));
         }
-        substrings.add(substring);
       }
+      --j;
+      ++endIndex;
     }
     return substrings;
+
   }
+
 }
