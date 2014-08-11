@@ -1,10 +1,5 @@
 package com.example;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -32,7 +27,7 @@ public class SubstringerTest {
     assertEquals("b", substrings.get(1));
     assertEquals("ab", substrings.get(2));
   }
-  
+
   @Test
   public void test_文字列を引数で渡すとすべての部分文字列を格納したリストを返すメソッドを呼び出すpart1() {
 
