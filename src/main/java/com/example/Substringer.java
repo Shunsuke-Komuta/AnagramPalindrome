@@ -13,20 +13,13 @@ public class Substringer {
 
 		for (int i = 0; i < length; i++) {
 			beginIndex = 0;
-			endIndex = i+1;
+			endIndex = i + 1;
 			for (int k = 0; endIndex <= length; k++) {
-				if (endIndex == length) {
-					substrings.add(string.substring(beginIndex));
-					System.out.println(string.substring(beginIndex));
-				} else {
-					substrings.add(string.substring(beginIndex, endIndex));
-					System.out.println(string.substring(beginIndex, endIndex));
-				}
+				substrings.add(string.substring(beginIndex, endIndex));
 				++beginIndex;
 				++endIndex;
 			}
 		}
 		return substrings;
-
 	}
 }
