@@ -13,9 +13,10 @@ public class Substringer {
     int endIndex = 0;
 
     for (int i = 0; i < j; i++) {
+      beginIndex = 0;
+      endIndex = i;
       for (i = 0; i < j; i++) {
-        beginIndex = 0;
-        endIndex++;
+
         if (endIndex == j) {
           substrings.add(string.substring(beginIndex));
           System.out.println(string.substring(beginIndex));
@@ -23,12 +24,11 @@ public class Substringer {
           substrings.add(string.substring(beginIndex, endIndex));
           System.out.println(string.substring(beginIndex, endIndex));
         }
+        ++beginIndex;
+        ++endIndex;
       }
-      --j;
-      ++endIndex;
     }
     return substrings;
 
   }
-
 }

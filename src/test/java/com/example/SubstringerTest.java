@@ -23,12 +23,12 @@ public class SubstringerTest {
 
     substrings = substringer.createArrayOfSubstrings("aaa");
 
-    assertEquals(substrings.get(0), "a");
-    assertEquals(substrings.get(1), "a");
-    assertEquals(substrings.get(2), "a");
-    assertEquals(substrings.get(3), "aa");
-    assertEquals(substrings.get(4), "aa");
-    assertEquals(substrings.get(5), "aaa");
+    assertEquals("a", substrings.get(0));
+    assertEquals("a", substrings.get(1));
+    assertEquals("a", substrings.get(2));
+    assertEquals("aa", substrings.get(3));
+    assertEquals("aa", substrings.get(4));
+    assertEquals("aaa", substrings.get(5));
   }
 
   @Test
@@ -36,16 +36,16 @@ public class SubstringerTest {
 
     substringer.createArrayOfSubstrings("perl");
 
-    assertEquals(substrings.get(0), "p");
-    assertEquals(substrings.get(1), "pe");
-    assertEquals(substrings.get(2), "per");
-    assertEquals(substrings.get(3), "perl");
-    assertEquals(substrings.get(4), "e");
-    assertEquals(substrings.get(5), "er");
-    assertEquals(substrings.get(6), "erl");
-    assertEquals(substrings.get(7), "r");
-    assertEquals(substrings.get(8), "rl");
-    assertEquals(substrings.get(9), "l");
+    assertEquals("p", substrings.get(0));
+    assertEquals("pe", substrings.get(1));
+    assertEquals("per", substrings.get(2));
+    assertEquals("perl", substrings.get(3));
+    assertEquals("e", substrings.get(4));
+    assertEquals("er", substrings.get(5));
+    assertEquals("erl", substrings.get(6));
+    assertEquals("r", substrings.get(7));
+    assertEquals("rl", substrings.get(8));
+    assertEquals("l", substrings.get(9));
   }
 
 
