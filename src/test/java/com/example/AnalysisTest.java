@@ -74,7 +74,7 @@ public class AnalysisTest {
   public void test_文字aaの部分文字とその個数を参照し文字が奇数個の文字の数0を返す() {
     table.put("a", 2);
 
-    int actual = analysis.odd(table);
+    int actual = analysis.countOddChar(table);
 
     assertEquals(0, actual);
   }
@@ -84,7 +84,7 @@ public class AnalysisTest {
     table.put("a", 2);
     table.put("b", 1);
 
-    int actual = analysis.odd(table);
+    int actual = analysis.countOddChar(table);
 
     assertEquals(1, actual);
   }
@@ -93,7 +93,7 @@ public class AnalysisTest {
   public void test_文字aaaの部分文字とその個数を参照し文字が奇数個の文字の数1を返す() {
     table.put("a", 3);
 
-    int actual = analysis.odd(table);
+    int actual = analysis.countOddChar(table);
 
     assertEquals(1, actual);
   }
@@ -104,7 +104,7 @@ public class AnalysisTest {
     table.put("b", 1);
     table.put("c", 1);
 
-    int actual = analysis.odd(table);
+    int actual = analysis.countOddChar(table);
 
     assertEquals(3, actual);
   }

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Executor {
 
-  public int[] getCounts(String[] array) {
+  static Substringer substringer = new Substringer();
+  static Analysis analysis = new Analysis();
+
+  public int[] getResult(String[] array) {
     int[] result = new int[array.length];
-    Substringer substringer = new Substringer();
-    Analysis analysis = new Analysis();
 
     for (int i = 0; i < array.length; i++) {
       ArrayList<String> substringList = substringer.createSubstringList(array[i]);

@@ -8,17 +8,18 @@ public class Analysis {
   HashMap<String, Integer> table = null;
 
   public int result(ArrayList<String> List) {
-
     int count = 0;
+    int valueOfOddChar = 0;
 
     for (int i = 0; i < List.size(); i++) {
       substring = List.get(i);
       HashMap<String, Integer> table = createStringsTable(substring);
-      int odd = odd(table);
-      if (substring.length() % 2 == 1 && odd == 1) {
+      valueOfOddChar = countOddChar(table);
+
+      if (substring.length() % 2 == 1 && valueOfOddChar == 1) {
         count++;
       }
-      if (substring.length() % 2 == 0 && odd == 0) {
+      if (substring.length() % 2 == 0 && valueOfOddChar == 0) {
         count++;
       }
     }
@@ -44,7 +45,7 @@ public class Analysis {
     return oddTable;
   }
 
-  public int odd(HashMap<String, Integer> table) {
+  public int countOddChar(HashMap<String, Integer> table) {
     int valueOfOdd = 0;
 
     for (String key : table.keySet()) {

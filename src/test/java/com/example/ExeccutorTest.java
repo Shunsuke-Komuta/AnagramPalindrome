@@ -24,7 +24,7 @@ public class ExeccutorTest extends TestCase {
     array[2] = "aabc";
     array[3] = "pepper";
 
-    result = executor.getCounts(array);
+    result = executor.getResult(array);
 
     assertEquals(result[0], 6);
     assertEquals(result[1], 5);

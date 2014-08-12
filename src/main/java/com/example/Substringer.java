@@ -18,7 +18,7 @@ public class Substringer {
         substringList.add(string.substring(beginIndex, endIndex));
         ++beginIndex;
         ++endIndex;
-      } while (endIndex < length + 1);
+      } while (endIndex <= length);
     }
     return substringList;
   }
