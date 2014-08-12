@@ -12,16 +12,17 @@ public class AnalysisTest {
   ArrayList<String> substrings = null;
   ArrayList<String> oddStrings = null;
   ArrayList<String> evenStrings = null;
-
+  HashMap<String, Integer> oddTable = null;
   Analysis analysis = null;
+
 
   @Before
   public void setUp() {
     substrings = new ArrayList<String>();
     oddStrings = new ArrayList<String>();
     evenStrings = new ArrayList<String>();
-
     analysis = new Analysis();
+    oddTable = new HashMap<String, Integer>();
   }
 
   @Test
@@ -36,26 +37,51 @@ public class AnalysisTest {
   }
 
   @Test
-  public void test_a_aが格納されたリストが渡されると文字とその個数を格納したものを返す() {
+  public void test_aが格納されたリストが渡されると文字とその個数を格納したものを返す() {
     oddStrings.add("a");
-    oddStrings.add("a");
-    HashMap<String, Integer> oddTable = new HashMap<String, Integer>();
 
-    oddTable = analysis.createOddStringsTabel(oddStrings);
+    oddTable = analysis.createStringsTable(oddStrings.get(0));
+
+    assertEquals(1, (int) oddTable.get("a"));
+  }
+
+  @Test
+  public void test_bが格納されたリストが渡されると文字とその個数を格納したものを返す() {
+    oddStrings.add("b");
+
+    oddTable = analysis.createStringsTable(oddStrings.get(0));
+
+    assertEquals(1, (int) oddTable.get("b"));
+  }
+
+  @Test
+  public void test_aaが格納されたリストが渡されると文字とその個数を格納したものを返す() {
+    oddStrings.add("aa");
+
+    oddTable = analysis.createStringsTable(oddStrings.get(0));
 
     assertEquals(2, (int) oddTable.get("a"));
   }
 
   @Test
-  public void test_a_bが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("a");
-    oddStrings.add("b");
-    HashMap<String, Integer> oddTable = new HashMap<String, Integer>();
+  public void test_abが格納されたリストが渡されると文字とその個数を格納したものを返す() {
+    oddStrings.add("ab");
 
-    oddTable = analysis.createOddStringsTabel(oddStrings);
+    oddTable = analysis.createStringsTable(oddStrings.get(0));
 
     assertEquals(1, (int) oddTable.get("a"));
     assertEquals(1, (int) oddTable.get("b"));
   }
 
+  @Test
+  public void test_abccbaが格納されたリストが渡されると文字とその個数を格納したものを返す() {
+    oddStrings.add("abccba");
+    String str = oddStrings.get(0);
+
+    oddTable = analysis.createStringsTable(str);
+
+    assertEquals(2, (int) oddTable.get("a"));
+    assertEquals(2, (int) oddTable.get("b"));
+    assertEquals(2, (int) oddTable.get("c"));
+  }
 }

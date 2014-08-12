@@ -16,18 +16,21 @@ public class Analysis {
     return count;
   }
 
-  public HashMap<String, Integer> createOddStringsTabel(ArrayList<String> oddStrings) {
+  public HashMap<String, Integer> createStringsTable(String substring) {
     HashMap<String, Integer> oddTable = new HashMap<String, Integer>();
+    int k = 0;
+    String key = null;
 
-    for (int i = 0; i < oddStrings.size(); i++) {
-      String string = oddStrings.get(i);
-      int k = 0;
+    for (int i = 0; i < substring.length(); i++) {
+      char ch = substring.charAt(i);
+      key = String.valueOf(ch);
+      k = 0;
 
-      if (oddTable.containsKey(string)) {
-        k = oddTable.get(string);
+      if (oddTable.containsKey(key)) {
+        k = oddTable.get(key);
       }
       k++;
-      oddTable.put(string, k);
+      oddTable.put(key, k);
     }
     return oddTable;
   }
