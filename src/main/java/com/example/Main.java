@@ -19,7 +19,6 @@ public class Main {
     }
 
     Executor executor = new Executor();
-
     result = executor.getCounts(array);
 
   }

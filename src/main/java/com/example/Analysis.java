@@ -33,10 +33,4 @@ public class Analysis {
 
 
 
-  public int getCountOfAnagramPalindrome(String string) {
-    // TODO Auto-generated method stub
-    return 0;
-  }
-
-
 }

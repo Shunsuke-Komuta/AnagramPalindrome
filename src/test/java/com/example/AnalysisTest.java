@@ -18,7 +18,7 @@ public class AnalysisTest {
   }
 
   @Test
-  public void test_aaの部分文字列が格納されたリストを引数で渡されるとアナグラム回文の結果を返す() {
+  public void test_aa部分文字列が格納されたリストを引数で渡されるとアナグラム回文の結果を返す() {
     substrings.add("a");
     substrings.add("a");
     substrings.add("aa");
