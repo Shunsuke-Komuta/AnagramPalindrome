@@ -10,7 +10,8 @@ public class Executor {
     Substringer substringer = new Substringer();
 
     for (int i = 0; i < array.length; i++) {
-      ArrayList<String> substrings = substringer.createArrayOfSubstrings(array[i]);
+      ArrayList<String> substringList = substringer.createSubstringList(array[i]);
+
 
 
     }

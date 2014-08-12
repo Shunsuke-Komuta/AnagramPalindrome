@@ -9,79 +9,125 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class AnalysisTest {
-  ArrayList<String> substrings = null;
-  ArrayList<String> oddStrings = null;
-  ArrayList<String> evenStrings = null;
-  HashMap<String, Integer> oddTable = null;
+  ArrayList<String> substringList = null;
+  HashMap<String, Integer> table = null;
   Analysis analysis = null;
 
 
   @Before
   public void setUp() {
-    substrings = new ArrayList<String>();
-    oddStrings = new ArrayList<String>();
-    evenStrings = new ArrayList<String>();
+    substringList = new ArrayList<String>();
     analysis = new Analysis();
-    oddTable = new HashMap<String, Integer>();
+    table = new HashMap<String, Integer>();
   }
 
   @Test
-  public void test_aa部分文字列が格納されたリストを引数で渡されるとアナグラム回文の結果を返す() {
-    substrings.add("a");
-    substrings.add("a");
-    substrings.add("aa");
+  public void test_文字aとその個数を格納したものを返す() {
+    substringList.add("a");
 
-    int actual = analysis.result(substrings);
+    table = analysis.createStringsTable(substringList.get(0));
+
+    assertEquals(1, (int) table.get("a"));
+  }
+
+  @Test
+  public void test_文字bとその個数を格納したものを返す() {
+    substringList.add("b");
+
+    table = analysis.createStringsTable(substringList.get(0));
+
+    assertEquals(1, (int) table.get("b"));
+  }
+
+  @Test
+  public void test_文字aaとその個数を格納したものを返す() {
+    substringList.add("aa");
+
+    table = analysis.createStringsTable(substringList.get(0));
+
+    assertEquals(2, (int) table.get("a"));
+  }
+
+  @Test
+  public void test_文字abとその個数を格納したものを返す() {
+    substringList.add("ab");
+
+    table = analysis.createStringsTable(substringList.get(0));
+
+    assertEquals(1, (int) table.get("a"));
+    assertEquals(1, (int) table.get("b"));
+  }
+
+  @Test
+  public void test_文字abccbaとその個数を格納したものを返す() {
+    substringList.add("abccba");
+    String str = substringList.get(0);
+
+    table = analysis.createStringsTable(str);
+
+    assertEquals(2, (int) table.get("a"));
+    assertEquals(2, (int) table.get("b"));
+    assertEquals(2, (int) table.get("c"));
+  }
+
+  @Test
+  public void test_文字aaの部分文字とその個数を参照し文字が奇数個の文字の数0を返す() {
+    table.put("a", 2);
+
+    int actual = analysis.odd(table);
+
+    assertEquals(0, actual);
+  }
+
+  @Test
+  public void test_文字aabの部分文字とその個数を参照し文字が奇数個の文字の数1を返す() {
+    table.put("a", 2);
+    table.put("b", 1);
+
+    int actual = analysis.odd(table);
+
+    assertEquals(1, actual);
+  }
+
+  @Test
+  public void test_文字aaaの部分文字とその個数を参照し文字が奇数個の文字の数1を返す() {
+    table.put("a", 3);
+
+    int actual = analysis.odd(table);
+
+    assertEquals(1, actual);
+  }
+
+  @Test
+  public void test_文字abcの部分文字とその個数を参照し文字が奇数個の文字の数1を返す() {
+    table.put("a", 1);
+    table.put("b", 1);
+    table.put("c", 1);
+
+    int actual = analysis.odd(table);
 
     assertEquals(3, actual);
   }
 
   @Test
-  public void test_aが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("a");
+  public void test_a_a_aaが格納されたリストを渡すと3を返す() {
+    substringList.add("a");
+    substringList.add("a");
+    substringList.add("aa");
 
-    oddTable = analysis.createStringsTable(oddStrings.get(0));
+    int actual = analysis.result(substringList);
 
-    assertEquals(1, (int) oddTable.get("a"));
+    assertEquals(3, actual);
   }
 
   @Test
-  public void test_bが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("b");
+  public void test_a_b_abが格納されたリストを渡すと2を返す() {
+    substringList.add("a");
+    substringList.add("b");
+    substringList.add("ab");
 
-    oddTable = analysis.createStringsTable(oddStrings.get(0));
+    int actual = analysis.result(substringList);
 
-    assertEquals(1, (int) oddTable.get("b"));
-  }
-
-  @Test
-  public void test_aaが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("aa");
-
-    oddTable = analysis.createStringsTable(oddStrings.get(0));
-
-    assertEquals(2, (int) oddTable.get("a"));
-  }
-
-  @Test
-  public void test_abが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("ab");
-
-    oddTable = analysis.createStringsTable(oddStrings.get(0));
-
-    assertEquals(1, (int) oddTable.get("a"));
-    assertEquals(1, (int) oddTable.get("b"));
-  }
-
-  @Test
-  public void test_abccbaが格納されたリストが渡されると文字とその個数を格納したものを返す() {
-    oddStrings.add("abccba");
-    String str = oddStrings.get(0);
-
-    oddTable = analysis.createStringsTable(str);
-
-    assertEquals(2, (int) oddTable.get("a"));
-    assertEquals(2, (int) oddTable.get("b"));
-    assertEquals(2, (int) oddTable.get("c"));
+    assertEquals(2, actual);
   }
 }

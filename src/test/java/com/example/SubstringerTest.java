@@ -10,53 +10,51 @@ import org.junit.Test;
 public class SubstringerTest {
 
   Substringer substringer = null;
-  ArrayList<String> substrings = null;
+  ArrayList<String> substringlist = null;
 
   @Before
   public void setUp() {
     substringer = new Substringer();
-    substrings = new ArrayList<String>();
+    substringlist = new ArrayList<String>();
   }
 
   @Test
-  public void test_文字列を引数で渡すとすべての部分文字列を格納したリストを返すメソッドを呼び出すpart0() {
+  public void test_文字列abを部分文字列にしたリストを返す() {
 
-    substrings = substringer.createArrayOfSubstrings("ab");
+    substringlist = substringer.createSubstringList("ab");
 
-    assertEquals("a", substrings.get(0));
-    assertEquals("b", substrings.get(1));
-    assertEquals("ab", substrings.get(2));
+    assertEquals("a", substringlist.get(0));
+    assertEquals("b", substringlist.get(1));
+    assertEquals("ab", substringlist.get(2));
   }
 
   @Test
-  public void test_文字列を引数で渡すとすべての部分文字列を格納したリストを返すメソッドを呼び出すpart1() {
+  public void test_文字列abcを部分文字列にしたリストを返す() {
 
-    substrings = substringer.createArrayOfSubstrings("aaa");
+    substringlist = substringer.createSubstringList("abc");
 
-    assertEquals("a", substrings.get(0));
-    assertEquals("a", substrings.get(1));
-    assertEquals("a", substrings.get(2));
-    assertEquals("aa", substrings.get(3));
-    assertEquals("aa", substrings.get(4));
-    assertEquals("aaa", substrings.get(5));
+    assertEquals("a", substringlist.get(0));
+    assertEquals("b", substringlist.get(1));
+    assertEquals("c", substringlist.get(2));
+    assertEquals("ab", substringlist.get(3));
+    assertEquals("bc", substringlist.get(4));
+    assertEquals("abc", substringlist.get(5));
   }
 
   @Test
-  public void test_文字列を引数で渡すとすべての部分文字列を格納したリストを返すメソッドを呼び出すpart2() {
+  public void test_文字列perlを部分文字列にしたリストを返す() {
 
-    substrings = substringer.createArrayOfSubstrings("perl");
+    substringlist = substringer.createSubstringList("perl");
 
-    assertEquals("p", substrings.get(0));
-    assertEquals("e", substrings.get(1));
-    assertEquals("r", substrings.get(2));
-    assertEquals("l", substrings.get(3));
-    assertEquals("pe", substrings.get(4));
-    assertEquals("er", substrings.get(5));
-    assertEquals("rl", substrings.get(6));
-    assertEquals("per", substrings.get(7));
-    assertEquals("erl", substrings.get(8));
-    assertEquals("perl", substrings.get(9));
+    assertEquals("p", substringlist.get(0));
+    assertEquals("e", substringlist.get(1));
+    assertEquals("r", substringlist.get(2));
+    assertEquals("l", substringlist.get(3));
+    assertEquals("pe", substringlist.get(4));
+    assertEquals("er", substringlist.get(5));
+    assertEquals("rl", substringlist.get(6));
+    assertEquals("per", substringlist.get(7));
+    assertEquals("erl", substringlist.get(8));
+    assertEquals("perl", substringlist.get(9));
   }
-
-
 }

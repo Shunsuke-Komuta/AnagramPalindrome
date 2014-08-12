@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Substringer {
 
-  public ArrayList<String> createArrayOfSubstrings(String string) {
-    ArrayList<String> substrings = new ArrayList<String>();
+  public ArrayList<String> createSubstringList(String string) {
+    ArrayList<String> substringList = new ArrayList<String>();
 
     int length = string.length();
     int beginIndex = 0;
@@ -15,11 +15,11 @@ public class Substringer {
       beginIndex = 0;
       endIndex = i + 1;
       do {
-        substrings.add(string.substring(beginIndex, endIndex));
+        substringList.add(string.substring(beginIndex, endIndex));
         ++beginIndex;
         ++endIndex;
       } while (endIndex < length + 1);
     }
-    return substrings;
+    return substringList;
   }
 }

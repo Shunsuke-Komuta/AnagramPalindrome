@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DivideTest {
 
   @Test
-  public void test_a_b_abが格納されたリストを受け取ると奇数個で構成された部分文字列が格納されたリストを返すメソッド() {
+  public void test_a_b_abが格納されたリストを奇数文字の部分文字列に分類したリストを返す() {
     ArrayList<String> allSubstrings = new ArrayList<String>();
     allSubstrings.add("a");
     allSubstrings.add("b");
@@ -24,7 +24,7 @@ public class DivideTest {
   }
 
   @Test
-  public void test_abcdの部分文字列が格納されたリストを受け取ると奇数個で構成された部分文字列が格納されたリストを返すメソッド() {
+  public void test_a_b_c_d_ab_bc_cd_abc_bcd_abcdが格納されたリストを奇数文字の部分文字列に分類したリストを返す() {
     ArrayList<String> allSubstrings = new ArrayList<String>();
     allSubstrings.add("a");
     allSubstrings.add("b");
@@ -50,7 +50,7 @@ public class DivideTest {
   }
 
   @Test
-  public void test_a_b_abが格納されたリストを受け取ると偶数個で構成された部分文字列が格納されたリストを返すメソッド() {
+  public void test_a_b_abが格納されたリストを偶数文字の部分文字列に分類したリストを返す() {
     ArrayList<String> allSubstrings = new ArrayList<String>();
     allSubstrings.add("a");
     allSubstrings.add("b");
@@ -64,7 +64,7 @@ public class DivideTest {
   }
 
   @Test
-  public void test_abcdの部分文字列が格納されたリストを受け取ると偶数個で構成された部分文字列が格納されたリストを返すメソッド() {
+  public void test_abcdが格納されたリストを偶数文字の部分文字列に分類したリストを返す() {
     ArrayList<String> allSubstrings = new ArrayList<String>();
     allSubstrings.add("a");
     allSubstrings.add("b");

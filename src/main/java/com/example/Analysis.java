@@ -4,15 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Analysis {
-  String substring = null;
 
-  public int result(ArrayList<String> substrings) {
+
+  public int result(ArrayList<String> List) {
+    String substring = null;
+
     int count = 0;
 
-    for (int i = 0; i < substrings.size(); i++) {
-      substring = substrings.get(i);
+    for (int i = 0; i < List.size(); i++) {
+      substring = List.get(i);
+      HashMap<String, Integer> table = createStringsTable(substring);
+      int odd = odd(table);
+      if (substring.length() % 2 == 1 && odd == 1) {
+        count++;
+      }
+      if (substring.length() % 2 == 0 && odd == 0) {
+        count++;
+      }
     }
-    count = 3;
     return count;
   }
 
@@ -34,4 +43,16 @@ public class Analysis {
     }
     return oddTable;
   }
+
+  public int odd(HashMap<String, Integer> table) {
+    int odd = 0;
+
+    for (String key : table.keySet()) {
+      if (table.get(key) % 2 == 1) {
+        odd++;
+      }
+    }
+    return odd;
+  }
+
 }
