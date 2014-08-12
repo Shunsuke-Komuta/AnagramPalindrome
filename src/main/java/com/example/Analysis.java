@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Analysis {
-
+  String substring = null;
+  HashMap<String, Integer> table = null;
 
   public int result(ArrayList<String> List) {
-    String substring = null;
 
     int count = 0;
 
@@ -45,14 +45,14 @@ public class Analysis {
   }
 
   public int odd(HashMap<String, Integer> table) {
-    int odd = 0;
+    int valueOfOdd = 0;
 
     for (String key : table.keySet()) {
       if (table.get(key) % 2 == 1) {
-        odd++;
+        valueOfOdd++;
       }
     }
-    return odd;
+    return valueOfOdd;
   }
 
 }

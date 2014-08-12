@@ -99,7 +99,7 @@ public class AnalysisTest {
   }
 
   @Test
-  public void test_文字abcの部分文字とその個数を参照し文字が奇数個の文字の数1を返す() {
+  public void test_文字abcの部分文字とその個数を参照し文字が奇数個の文字の数3を返す() {
     table.put("a", 1);
     table.put("b", 1);
     table.put("c", 1);
