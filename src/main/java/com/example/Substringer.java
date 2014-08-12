@@ -14,11 +14,11 @@ public class Substringer {
     for (int i = 0; i < length; i++) {
       beginIndex = 0;
       endIndex = i + 1;
-      for (int k = 0; endIndex <= length; k++) {
+      do {
         substrings.add(string.substring(beginIndex, endIndex));
         ++beginIndex;
         ++endIndex;
-      }
+      } while (endIndex < length + 1);
     }
     return substrings;
   }
