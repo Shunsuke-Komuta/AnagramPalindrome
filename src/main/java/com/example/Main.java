@@ -2,8 +2,6 @@ package com.example;
 
 import java.util.Scanner;
 
-import jdk.nashorn.internal.runtime.Timing;
-
 public class Main {
 
   static Executor executor = new Executor();
@@ -22,7 +20,6 @@ public class Main {
     }
 
     long start = System.currentTimeMillis();
-    Timing timing = new Timing();
 
     result = executor.getResult(array);
 
