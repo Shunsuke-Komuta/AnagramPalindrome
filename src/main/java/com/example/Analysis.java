@@ -49,13 +49,6 @@ public class Analysis {
   public int countOddChar(HashMap<String, Integer> table) {
     int valueOfOdd = 0;
 
-    // for (String key : table.keySet()) {
-    // if (table.get(key) % 2 == 1) {
-    // valueOfOdd++;
-    // }
-    // }
-    // return valueOfOdd;
-
     Iterator<Integer> iterator = table.values().iterator();
     while (valueOfOdd < 2 && iterator.hasNext()) {
       if (iterator.next() % 2 == 1) {
