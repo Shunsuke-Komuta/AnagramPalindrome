@@ -106,7 +106,20 @@ public class AnalysisTest {
 
     int actual = analysis.countOddChar(table);
 
-    assertEquals(3, actual);
+    assertEquals(2, actual);
+  }
+
+  @Test
+  public void test_文字abbcccddddeeeeeの部分文字とその個数を参照し文字が奇数個の文字の数2を返す() {
+    table.put("a", 1);
+    table.put("b", 2);
+    table.put("c", 3);
+    table.put("d", 4);
+    table.put("d", 5);
+
+    int actual = analysis.countOddChar(table);
+
+    assertEquals(2, actual);
   }
 
   @Test
