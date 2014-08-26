@@ -28,22 +28,19 @@ public class Analysis {
   }
 
   public HashMap<String, Integer> createStringsTable(String substring) {
-    HashMap<String, Integer> oddTable = new HashMap<String, Integer>();
-    int k = 0;
-    String key = null;
-
+    HashMap<String, Integer> table = new HashMap<String, Integer>();
     for (int i = 0; i < substring.length(); i++) {
       char ch = substring.charAt(i);
-      key = String.valueOf(ch);
-      k = 0;
+      String key = String.valueOf(ch);
+      int k = 0;
 
-      if (oddTable.containsKey(key)) {
-        k = oddTable.get(key);
+      if (table.containsKey(key)) {
+        k = table.get(key);
       }
       k++;
-      oddTable.put(key, k);
+      table.put(key, k);
     }
-    return oddTable;
+    return table;
   }
 
   public int countOddChar(HashMap<String, Integer> table) {
