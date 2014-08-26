@@ -1,22 +1,11 @@
 package com.example;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 public class Analysis {
   String substring;
   HashMap<String, Integer> table;
-
-  public int result(ArrayList<String> list) {
-    int count = 0;
-    for (int i = 0; i < list.size(); i++) {
-    	if (isAnagramPalindrome(list.get(i))) {
-    		++count;
-    	}
-    }
-    return count;
-  }
   
   public boolean isAnagramPalindrome(String substring) {
       HashMap<String, Integer> table = createStringsTable(substring);

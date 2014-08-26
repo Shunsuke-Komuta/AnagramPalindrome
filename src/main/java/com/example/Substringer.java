@@ -1,25 +1,22 @@
 package com.example;
 
-import java.util.ArrayList;
-
 public class Substringer {
 
-  public ArrayList<String> createSubstringList(String string) {
-    ArrayList<String> substringList = new ArrayList<String>();
-
+  public int countSatisfiedSubstrings(String string, Analysis analysis) {
     int length = string.length();
-    int beginIndex = 0;
-    int endIndex = 0;
+    int count = 0;
 
     for (int i = 0; i < length; i++) {
-      beginIndex = 0;
-      endIndex = i + 1;
+      int beginIndex = 0;
+      int endIndex = i + 1;
       do {
-        substringList.add(string.substring(beginIndex, endIndex));
+    	if (analysis.isAnagramPalindrome(string.substring(beginIndex, endIndex))) {
+    		++count;
+    	}
         ++beginIndex;
         ++endIndex;
       } while (endIndex <= length);
     }
-    return substringList;
+    return count;
   }
 }
