@@ -8,23 +8,20 @@ public class Analysis {
   String substring;
   HashMap<String, Integer> table;
 
-  public int result(ArrayList<String> List) {
+  public int result(ArrayList<String> list) {
     int count = 0;
-    int valueOfOddChar;
-
-    for (int i = 0; i < List.size(); i++) {
-      substring = List.get(i);
-      HashMap<String, Integer> table = createStringsTable(substring);
-      valueOfOddChar = countOddChar(table);
-
-      if (substring.length() % 2 == 1 && valueOfOddChar == 1) {
-        count++;
-      }
-      if (substring.length() % 2 == 0 && valueOfOddChar == 0) {
-        count++;
-      }
+    for (int i = 0; i < list.size(); i++) {
+    	if (isAnagramPalindrome(list.get(i))) {
+    		++count;
+    	}
     }
     return count;
+  }
+  
+  public boolean isAnagramPalindrome(String substring) {
+      HashMap<String, Integer> table = createStringsTable(substring);
+      int valueOfOddChar = countOddChar(table);
+      return valueOfOddChar <= 1;
   }
 
   public HashMap<String, Integer> createStringsTable(String substring) {
