@@ -1,49 +1,32 @@
 package com.example;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 public class Analysis {
   String substring;
   HashMap<String, Integer> table;
-
-  public int result(ArrayList<String> List) {
-    int count = 0;
-    int valueOfOddChar;
-
-    for (int i = 0; i < List.size(); i++) {
-      substring = List.get(i);
+  
+  public boolean isAnagramPalindrome(String substring) {
       HashMap<String, Integer> table = createStringsTable(substring);
-      valueOfOddChar = countOddChar(table);
-
-      if (substring.length() % 2 == 1 && valueOfOddChar == 1) {
-        count++;
-      }
-      if (substring.length() % 2 == 0 && valueOfOddChar == 0) {
-        count++;
-      }
-    }
-    return count;
+      int valueOfOddChar = countOddChar(table);
+      return valueOfOddChar <= 1;
   }
 
   public HashMap<String, Integer> createStringsTable(String substring) {
-    HashMap<String, Integer> oddTable = new HashMap<String, Integer>();
-    int k = 0;
-    String key = null;
-
+    HashMap<String, Integer> table = new HashMap<String, Integer>();
     for (int i = 0; i < substring.length(); i++) {
       char ch = substring.charAt(i);
-      key = String.valueOf(ch);
-      k = 0;
+      String key = String.valueOf(ch);
+      int k = 0;
 
-      if (oddTable.containsKey(key)) {
-        k = oddTable.get(key);
+      if (table.containsKey(key)) {
+        k = table.get(key);
       }
       k++;
-      oddTable.put(key, k);
+      table.put(key, k);
     }
-    return oddTable;
+    return table;
   }
 
   public int countOddChar(HashMap<String, Integer> table) {
